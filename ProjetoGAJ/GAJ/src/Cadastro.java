@@ -81,7 +81,7 @@ public class Cadastro extends JFrame {
 	
 		
 		
-		l1 = new JLabel("Formul·rio de Cadastro do Usu·rio");
+		l1 = new JLabel("Formul√°rio de Cadastro do Usu√°rio");
 		l1.setFont(new Font("italic",Font.LAYOUT_LEFT_TO_RIGHT, 30));
 		l1.setForeground(Color.black);
 		l1.setVisible(true);
@@ -118,7 +118,7 @@ public class Cadastro extends JFrame {
 		l6.setVisible(true);
 		l6.setBounds(20, 345, 500,50);
 		
-		l7 = new JLabel("N∫ Da InscriÁ„o");
+		l7 = new JLabel("N¬∫ Da Inscri√ß√£o");
 		l7.setFont(new Font("italic",Font.LAYOUT_LEFT_TO_RIGHT, 16));
 		l7.setForeground(Color.black);
 		l7.setVisible(true);
@@ -130,7 +130,7 @@ public class Cadastro extends JFrame {
 		l8.setVisible(true);
 		l8.setBounds(400, 235, 500,50);
 		
-		l9 = new JLabel("Tipo de InscriÁ„o");
+		l9 = new JLabel("Tipo de Inscri√ß√£o");
 		l9.setFont(new Font("italic",Font.LAYOUT_LEFT_TO_RIGHT, 16));
 		l9.setForeground(Color.black);
 		l9.setVisible(true);
@@ -189,7 +189,7 @@ public class Cadastro extends JFrame {
 		bt.setVisible(true);
 		bt.setBounds(700, 255, 180, 30);
 	
-				/////EM AN¡LISE! EGH TOTAL NEM OLHEM KKKKKKKKKKKKKKKKKKKKK
+				/////EM AN√ÅLISE! EGH TOTAL NEM OLHEM KKKKKKKKKKKKKKKKKKKKK
 		
 		
 		
@@ -200,25 +200,35 @@ public class Cadastro extends JFrame {
 		bt.addActionListener(new ActionListener() {
 			
 			
-			
+			///Editado em 18/10/17 por kennedy...
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				 String aux = nome.getText();
-				 String aux1 = data.getText(); 
-				 String aux2 = id.getText();
-				 String aux3 = senha.getText();
-				 String aux4 = Ninscri.getText();
-				 String aux5 = seccional.getText();
-				 String aux6 = TipoInscri.getText();
+					
+				ConexaoBanco b = new ConexaoBanco();
+				
+				 String aux = nome.getText().toString();
+				 String aux1 =  data.getText().toString(); 
+				    int aux2 = Integer.valueOf(id.getText());
+				 String aux3 = senha.getText().toString();
+				 String aux4 = Ninscri.getText().toString();
+				 String aux5 = seccional.getText().toString();
+				 String aux6 = TipoInscri.getText().toString();
+			         String user = "usuario";
+				 
+				 b.conectar();
+			
+			     b.inserirUsuario(user ,aux2 , aux, aux1, aux3, aux4, aux5, aux6);
+			     
+			     b.desconectar();
 			
 				
 			Front front = new Front();		
 					
-			GerenciadorPessoas gere = new GerenciadorPessoas();
+			//GerenciadorPessoas gere = new GerenciadorPessoas();
 
-			gere.passarPessoa(aux,aux1, aux2, aux3, aux4, aux5, aux6);
-			gere.imprime();
+			//gere.passarPessoa(aux,aux1, aux2, aux3, aux4, aux5, aux6);
+			//gere.imprime();
 		
 		
 			
@@ -276,7 +286,7 @@ public class Cadastro extends JFrame {
 	
 	
 	
-	//////FUN«√O VALIDAR USU¡RIO///////////////////////
+	//////FUN√á√ÉO VALIDAR USU√ÅRIO///////////////////////
 	
 	
 	public static void validaUsuario(String [] argas){
@@ -290,7 +300,7 @@ public class Cadastro extends JFrame {
 	}
 	
 	
-/////FIM DA FUN«√O VALIDAR USU¡RIO//////////////////////	
+/////FIM DA FUN√á√ÉO VALIDAR USU√ÅRIO//////////////////////	
 	
 	
 	
